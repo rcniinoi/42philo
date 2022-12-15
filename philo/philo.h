@@ -6,7 +6,7 @@
 /*   By: rchiewli <rchiewli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 00:17:26 by rchiewli          #+#    #+#             */
-/*   Updated: 2022/12/15 12:13:21 by rchiewli         ###   ########.fr       */
+/*   Updated: 2022/12/15 14:26:24 by rchiewli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ int			ft_non(t_phi *phil);
 void		*paralympic(void *ptr);
 void		*routine2(void *ptr);
 void		ft_freephi(t_stk *tdata);
-void		ft_mislip(int vela);
+void		ft_mislip(useconds_t vela);
+size_t		ft_gettime(void);
 // int				ft_isdie(t_phi *phil, unsigned long timenow);
 // void			*kwai(void *ptr);
 

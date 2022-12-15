@@ -6,7 +6,7 @@
 /*   By: rchiewli <rchiewli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 00:03:15 by rchiewli          #+#    #+#             */
-/*   Updated: 2022/12/14 22:40:52 by rchiewli         ###   ########.fr       */
+/*   Updated: 2022/12/15 21:12:23 by rchiewli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	ft_start(t_stk *tdata)
 			&tdata->philo[i]) == -1)
 			printf ("pth create %d failed\n", i);
 		i++;
-		// usleep(100);
 	}
 	if (pthread_create(&tdata->omaewamoshideru, NULL, paralympic, tdata) == -1)
 		printf ("pth create kuy failed\n");
@@ -53,8 +52,6 @@ void	ft_start(t_stk *tdata)
 	{
 		if (pthread_join(tdata->philo[i].phit, NULL) != 0)
 			perror("join");
-		// if (pthread_detach(tdata->philo[i].phit) != 0)
-		// 	perror("detach");
 		i++;
 	}
 	if (pthread_join(tdata->omaewamoshideru, NULL) != 0)
@@ -66,7 +63,7 @@ int	main(int argc, char **argv)
 	t_stk	*tdata;
 
 	if (argc < 5)
-		return (printf("Mung nub pen mai\n"), 0);
+		return (write(2, "read supject sus\n", 17), 0);
 	if (argc == 6)
 	{
 		if (ft_atoi(argv[5]) < 1)
@@ -75,19 +72,17 @@ int	main(int argc, char **argv)
 	if (ft_atoi(argv[1]) < 1 || ft_atoi(argv[2]) < 60 || \
 		ft_atoi(argv[3]) < 60 || ft_atoi(argv[4]) < 60)
 		{
-			printf("pongtai kuy\n");
+			write(2, "pongtai kuy\n", 12);
 			return (0);
 		}
 	tdata = malloc(sizeof(t_stk));
 	ft_startini(argv, tdata);
-	// printf("-%d-\n", tdata->av1);
 	if (tdata->av1 > 1)
 		ft_start(tdata);
 	else if (tdata->av1 == 0)
-		printf("pongtai kuy\n");
+		write(2, "pongtai kuy\n", 12);
 	else if (tdata->av1 == 1)
 		ft_hardcode(tdata);
-	// ft_freephi(tdata);
 	free(tdata->philo);
 	free(tdata);
 }

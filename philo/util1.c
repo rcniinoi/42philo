@@ -6,7 +6,7 @@
 /*   By: rchiewli <rchiewli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 00:15:14 by rchiewli          #+#    #+#             */
-/*   Updated: 2022/12/15 12:25:38 by rchiewli         ###   ########.fr       */
+/*   Updated: 2022/12/15 21:21:26 by rchiewli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,19 @@
 size_t	ft_timenow(t_stk *tdata)
 {
 	struct timeval	tv;
-	size_t	time_in_milli;
+	size_t			time_in_milli;
 
 	gettimeofday(&tv, NULL);
 	time_in_milli = tv.tv_sec * 1000LL + tv.tv_usec / 1000;
 	return (time_in_milli - tdata->timestart);
+}
+
+size_t	ft_gettime(void)
+{
+	struct timeval	tv;
+
+	gettimeofday(&tv, NULL);
+	return (tv.tv_sec * 1000LL + tv.tv_usec / 1000);
 }
 
 void	ft_printphil(t_phi *philo, char *str, size_t time)
@@ -57,16 +65,4 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (rst * sign);
-}
-
-void	ft_mislip(int vela)
-{
-	int i;
-
-	i = 0;
-	while(i < vela)
-	{
-		usleep(vela);
-		i += vela;
-	}
 }

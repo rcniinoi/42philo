@@ -6,7 +6,7 @@
 /*   By: rchiewli <rchiewli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 00:12:04 by rchiewli          #+#    #+#             */
-/*   Updated: 2022/12/13 23:56:21 by rchiewli         ###   ########.fr       */
+/*   Updated: 2022/12/15 21:19:31 by rchiewli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ void	ft_dataini(char **argv, t_stk *tdata, size_t stime)
 
 void	ft_startini(char **argv, t_stk *tdata)
 {
-	size_t	time_in_millis;
+	size_t			time_in_millis;
 	struct timeval	ts;
 
 	gettimeofday(&ts, NULL);
-	time_in_millis = ts.tv_sec * 1000LL + ts.tv_usec / 1000;
+	time_in_millis = ts.tv_sec * 1000 + ts.tv_usec / 1000;
 	ft_dataini(argv, tdata, time_in_millis);
 	ft_philoini(tdata);
 }
