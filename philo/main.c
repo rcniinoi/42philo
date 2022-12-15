@@ -6,7 +6,7 @@
 /*   By: rchiewli <rchiewli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 00:03:15 by rchiewli          #+#    #+#             */
-/*   Updated: 2022/12/15 21:12:23 by rchiewli         ###   ########.fr       */
+/*   Updated: 2022/12/15 21:36:35 by rchiewli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	ft_start(t_stk *tdata)
 			&tdata->philo[i]) == -1)
 			printf ("pth create %d failed\n", i);
 		i++;
+		usleep(100);
 	}
 	if (pthread_create(&tdata->omaewamoshideru, NULL, paralympic, tdata) == -1)
 		printf ("pth create kuy failed\n");

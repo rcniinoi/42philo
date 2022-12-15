@@ -6,7 +6,7 @@
 /*   By: rchiewli <rchiewli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 00:15:14 by rchiewli          #+#    #+#             */
-/*   Updated: 2022/12/15 21:21:26 by rchiewli         ###   ########.fr       */
+/*   Updated: 2022/12/15 21:45:25 by rchiewli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ void	ft_printphil(t_phi *philo, char *str, size_t time)
 	pthread_mutex_unlock(&philo->common->printlock);
 }
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
-	int	i;
-	int	rst;
-	int	sign;
+	long	i;
+	long	rst;
+	int		sign;
 
 	sign = 1;
 	rst = 0;
@@ -64,5 +64,7 @@ int	ft_atoi(const char *str)
 		rst += (str[i] - '0');
 		i++;
 	}
+	if (rst > INT_MAX)
+		return (0);
 	return (rst * sign);
 }
